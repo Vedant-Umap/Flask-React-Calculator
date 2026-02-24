@@ -33,7 +33,7 @@ const Calculator = () => {
                     .replace(/÷/g, "/")
                     .replace(/−/g, "-");
 
-                const response = await fetch("https://flask-react-calculator.onrender.com/calculate", {
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/calculate`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -120,34 +120,37 @@ const Calculator = () => {
     };
 
     return (
-        <div className="calculator">
-            <Display value={input} />
+        <div className="app-container">
+            <h1 className="title" style={{ fontSize: "2.5rem" }}>Flask-Calculator-Project</h1>
+            <div className="calculator">
+                <Display value={input} />
 
-            <div className="buttons">
-                <Button label="⌫" className="gray" onClick={handleClick} />
-                <Button label="AC" className="gray" onClick={handleClick} />
-                <Button label="%" className="gray" onClick={handleClick} />
-                <Button label="÷" className="orange" onClick={handleClick} />
+                <div className="buttons">
+                    <Button label="⌫" className="gray" onClick={handleClick} />
+                    <Button label="AC" className="gray" onClick={handleClick} />
+                    <Button label="%" className="gray" onClick={handleClick} />
+                    <Button label="÷" className="orange" onClick={handleClick} />
 
-                <Button label="7" className="dark" onClick={handleClick} />
-                <Button label="8" className="dark" onClick={handleClick} />
-                <Button label="9" className="dark" onClick={handleClick} />
-                <Button label="×" className="orange" onClick={handleClick} />
+                    <Button label="7" className="dark" onClick={handleClick} />
+                    <Button label="8" className="dark" onClick={handleClick} />
+                    <Button label="9" className="dark" onClick={handleClick} />
+                    <Button label="×" className="orange" onClick={handleClick} />
 
-                <Button label="4" className="dark" onClick={handleClick} />
-                <Button label="5" className="dark" onClick={handleClick} />
-                <Button label="6" className="dark" onClick={handleClick} />
-                <Button label="−" className="orange" onClick={handleClick} />
+                    <Button label="4" className="dark" onClick={handleClick} />
+                    <Button label="5" className="dark" onClick={handleClick} />
+                    <Button label="6" className="dark" onClick={handleClick} />
+                    <Button label="−" className="orange" onClick={handleClick} />
 
-                <Button label="1" className="dark" onClick={handleClick} />
-                <Button label="2" className="dark" onClick={handleClick} />
-                <Button label="3" className="dark" onClick={handleClick} />
-                <Button label="+" className="orange" onClick={handleClick} />
+                    <Button label="1" className="dark" onClick={handleClick} />
+                    <Button label="2" className="dark" onClick={handleClick} />
+                    <Button label="3" className="dark" onClick={handleClick} />
+                    <Button label="+" className="orange" onClick={handleClick} />
 
-                <Button label="+/-" className="dark" onClick={handleClick} />
-                <Button label="0" className="dark" onClick={handleClick} />
-                <Button label="." className="dark" onClick={handleClick} />
-                <Button label="=" className="orange" onClick={handleClick} />
+                    <Button label="+/-" className="dark" onClick={handleClick} />
+                    <Button label="0" className="dark" onClick={handleClick} />
+                    <Button label="." className="dark" onClick={handleClick} />
+                    <Button label="=" className="orange" onClick={handleClick} />
+                </div>
             </div>
         </div>
     );
